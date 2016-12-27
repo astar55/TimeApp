@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Calibri, Yu Gothic, Arial, sans-serif;
+}
+
+.err {
+    font-size: 2em;
+    color: red;
+}
+
+[md-input] {
+    text-align: right;
+}
+
+[md-card-content] {
+    text-align: center;
+}

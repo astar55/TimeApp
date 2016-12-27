@@ -1,0 +1,24 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<md-toolbar color="primary" >
+  <div>
+    <i class="material-icons">alarm</i>
+    <button md-button *ngIf="menu.length !== 0">
+      <i class="material-icons">menu</i>
+    </button>
+    {{title}}
+  </div>
+  <div mdTooltip="Add Timer" mdTooltipPosition="below" class="rightdiv" >
+    <button md-button (click)="openDialog()"><i class="material-icons">alarm_add</i></button>
+  </div>
+</md-toolbar>
+<md-card *ngIf="timers.length === 0">
+  <md-card-content>
+    <p>Opp! No Timers!</p>
+
+  </md-card-content>
+
+</md-card>
+<div class="timers">
+  <div #container></div>
+</div>

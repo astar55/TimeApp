@@ -1,0 +1,17 @@
+.justifycontent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardtitle {
+    font-size: 2em;
+}
+
+.cardcontent {
+    font-size: 1em;
+    text-align: center;
+}
+
+md-card {
+    color: darkmagenta;   
+}

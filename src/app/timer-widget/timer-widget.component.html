@@ -1,0 +1,15 @@
+<md-card>
+  <md-card-header class="justifycontent">
+    <md-card-title class="cardtitle"><i class="material-icons">alarm</i>Timer</md-card-title>
+    <button md-button (click)="exit()"><i class="material-icons">clear</i></button>
+  </md-card-header>
+  <md-card-content class="cardcontent">
+    {{ remaining }}
+  </md-card-content>
+  <md-card-actions class="justifycontent">
+    <button md-button *ngIf="started === false" (click)="startTimer()">Start</button>
+    <button md-button *ngIf="started === true && paused === true" (click)="resumeTimer()">Resume</button>
+    <button md-button *ngIf="started === true && paused === false"(click)="pauseTimer()">Pause</button>
+    <button md-button (click)="resetTimer()">Reset</button>
+  </md-card-actions>
+</md-card>

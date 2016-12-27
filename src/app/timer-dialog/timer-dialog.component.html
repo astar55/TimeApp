@@ -1,0 +1,27 @@
+<div class="dialogdiv">
+  <h1 md-dialog-title>
+    <i class="material-icons">alarm</i>Create Timer
+  </h1>
+  <div md-dialog-content>
+    <div class="err">{{error}}</div>
+    <form>
+      <label for="timerinput">Time </label>
+      <div name="timerinput" class="timerinput">
+        <md-input-container>
+          <input md-input type="number" #mintime value="01" min="0" max="59" placeholder="Minutes" required>
+        </md-input-container>
+        <p class="timeseparator"> : </p>
+        <md-input-container>
+          <input md-input type="number" #sectime value="00" min="0" max="59" placeholder="Seconds" required>
+        </md-input-container>
+      </div>
+    </form>
+  </div>
+  <div md-dialog-action class="timerdialogaction">
+    <button md-button (click)="saveTimer(mintime.value, sectime.value)"
+    [disabled]="(mintime.value.length === 0 || !mintime.value.trim()) &&
+    (sectime.value.length === 0 || !sectime.value.trim())">Save</button>
+    
+    <button md-button (click)="dialogRef.close()" >Cancel</button>
+  </div>
+</div>

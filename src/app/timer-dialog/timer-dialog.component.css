@@ -1,0 +1,19 @@
+.timerinput {
+    display: flex;
+    flex-direction: row;
+}
+
+.timerdialogaction {
+    display: flex;
+    justify-content: space-between;
+}
+
+.timeseperator {
+    vertical-align: center;
+    font-size: 4em;
+    font-weight: bold;
+}
+
+.dialogdiv {
+    color: darkmagenta;
+}

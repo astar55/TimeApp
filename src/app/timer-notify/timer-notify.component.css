@@ -1,0 +1,37 @@
+@keyframes wiggle{
+    0%   { transform: rotate(0deg);   }
+    16%  { transform: rotate(-45deg); }
+    32%  { transform: rotate(45deg);  }
+    50%  { transform: rotate(0deg);   }
+    66%  { transform: rotate(-45deg); }
+    82%  { transform: rotate(45deg);  }
+    100% { transform: rotate(0deg);   }
+}
+
+.wiggle {
+    /* name | duration | delay | iteration-count */
+    animation: wiggle 5s 0s 5;
+    text-align: center;
+}
+
+.material-icons.md-48 {
+    font-size: 4em;
+}
+
+.flexdiv {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.flexbutton {
+    width: 100%;
+}
+
+[md-dialog-content] {
+    overflow-y: hidden;
+}
+
+.dialogdiv {
+    color: darkmagenta;
+}
