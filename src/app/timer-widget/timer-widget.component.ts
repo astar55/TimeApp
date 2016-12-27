@@ -31,9 +31,10 @@ export class TimerWidgetComponent implements OnInit {
   }
 
   calculateRemaining() {
-    let minutes: string = ((this.timeremain / (60 * 1000)) >> 0) >= 10 ? ((this.timeremain / (60 * 1000)) >> 0).toString() : "0" + ((this.timeremain / (60 * 1000)) >> 0).toString();
+    let hours: string = ((this.timeremain / (60 * 1000 * 60)) >> 0) >= 10 ? ((this.timeremain / (60 * 1000 * 60)) >> 0).toString() : "0" + ((this.timeremain / (60 * 1000 * 60)) >> 0).toString()
+    let minutes: string = (((this.timeremain / (60 * 1000)) % 60) >> 0) >= 10 ? (((this.timeremain / (60 * 1000)) % 60) >> 0).toString() : "0" + (((this.timeremain / (60 * 1000)) % 60) >> 0).toString();
     let seconds: string = (((this.timeremain / 1000) % 60) >> 0) >= 10 ? (((this.timeremain / 1000) % 60) >> 0).toString() : "0" + (((this.timeremain / 1000) % 60) >> 0).toString();
-    this.remaining =  `${minutes}:${seconds}`;
+    this.remaining =  `${hours}:${minutes}:${seconds}`;
   }
 
   pauseTimer(): void {
