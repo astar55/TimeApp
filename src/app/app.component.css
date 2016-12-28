@@ -33,4 +33,9 @@ md-card {
     justify-content: space-between;
 }
 
-
+.righttooltipdiv {
+    position: absolute;
+    right: 1em;
+    z-index: 2;
+    -moz-transform: translateY(-1em);
+}
