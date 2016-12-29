@@ -14,4 +14,8 @@ export class TimerServiceService {
     this.timer = this.timer.slice(0, this.getTimer().length+1).concat(timer);
   }
 
+  emptyTimer() {
+    this.timer = [];
+  }
+
 }

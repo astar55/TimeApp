@@ -1,41 +1,4 @@
-body {
-    position: relative;
-}
-
-md-card-title {
-    color: darkmagenta;   
-}
-
-button {
-    padding: 0;
-    width: 4em;
-}
-
-.rightbtn {
-    @apply button;
-    position: absolute;
-    right: 1em;
-    z-index: 2;
-}
-
-.rightdiv {
-    position: absolute;
-    right: 1em;
-    z-index: 2;
-}
-
-md-card {
-    top: 2em;
-}
-
-.justifycontent {
-    display: flex;
-    justify-content: space-between;
-}
-
-.righttooltipdiv {
-    position: absolute;
-    right: 1em;
-    z-index: 2;
-    -moz-transform: translateY(-1em);
+.leftmd-toolbar {
+    width: 90px !important;
+    z-index: 1;
 }

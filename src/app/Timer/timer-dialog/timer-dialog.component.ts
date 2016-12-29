@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 
-import { TimerServiceService } from '../timer-service.service';
+import { TimerServiceService } from '../../timer-service.service';
 
 @Component({
   selector: 'app-timer-dialog',

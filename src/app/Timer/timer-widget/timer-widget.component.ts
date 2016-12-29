@@ -3,7 +3,7 @@ import { MdDialog } from '@angular/material';
 
 import { TimerNotifyComponent } from '../timer-notify/timer-notify.component';
 
-import { TimerServiceService } from '../timer-service.service';
+import { TimerServiceService } from '../../timer-service.service';
 
 @Component({
   selector: 'app-timer-widget',
@@ -11,6 +11,7 @@ import { TimerServiceService } from '../timer-service.service';
   styleUrls: ['./timer-widget.component.css']
 })
 export class TimerWidgetComponent implements OnInit {
+  timerid: number;
   timername: string;
   totaltime: number;
   totaltimestring: string;
@@ -29,6 +30,12 @@ export class TimerWidgetComponent implements OnInit {
     this.calculateRemaining();
     this.totaltimestring = this.remaining;
     this.timerwidget = setInterval(() => {this.decrementTime()}, 1000);
+  }
+
+  ngOnDestroy() {
+    if(this.timerwidget) {
+      clearInterval(this.timerwidget);
+    }
   }
 
   calculateRemaining() {
@@ -80,7 +87,7 @@ export class TimerWidgetComponent implements OnInit {
 
   exit(): void {
     clearInterval(this.timerwidget);
-    this.close.emit();
+    this.close.emit(this.timerid);
   }
 
 }
