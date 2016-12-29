@@ -30,7 +30,7 @@
 npm-debug.log
 testem.log
 /typings
-/src-test
+/src/app/audiolist.ts
 
 # e2e
 /e2e/*.js

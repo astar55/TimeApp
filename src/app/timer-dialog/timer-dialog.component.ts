@@ -17,7 +17,8 @@ export class TimerDialogComponent implements OnInit {
   ngOnInit() {
   }
 
-  saveTimer(hrtime: string, mintime: string, sectime:string) {
+  saveTimer(hrtime: string, mintime: string, sectime:string, name = "Alarm") {
+    name = name.trim().length == 0 ? "Alarm" : name;
     if((hrtime.length !== 0 || hrtime.trim().length !== 0) &&
       (mintime.length !== 0 || mintime.trim().length !== 0) &&
       (sectime.length !== 0 || sectime.trim().length !== 0) && 
@@ -32,7 +33,7 @@ export class TimerDialogComponent implements OnInit {
         if (+sectime >=0 && +sectime <=9 && sectime.length < 2){
           sectime = "0"+sectime;
         }
-        let timer = {hour: hrtime, minute: mintime, second: sectime, total: (1000*+sectime)+(1000*60*+mintime)+(1000*60*60*+hrtime)}
+        let timer = {name: name, hour: hrtime, minute: mintime, second: sectime, total: (1000*+sectime)+(1000*60*+mintime)+(1000*60*60*+hrtime)}
         this.timerServiceService.setTimer(timer);
         this.dialogRef.close("save");
       }

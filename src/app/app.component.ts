@@ -36,15 +36,16 @@ export class AppComponent implements OnInit{
     dialogRef.afterClosed().subscribe((...args) => {
       this.getTimers();
       if (args[0] === "save") {
-        this.createTimer(this.timers[this.timers.length -1].total);
+        this.createTimer(this.timers[this.timers.length -1].name, this.timers[this.timers.length -1].total);
       }    
     }
     )
   }
 
-  createTimer(total: number): ComponentRef<TimerWidgetComponent> {
+  createTimer(name: string, total: number): ComponentRef<TimerWidgetComponent> {
     let timerComponentFactory = this.componentFactoryResolver.resolveComponentFactory(TimerWidgetComponent)
     let timerComponentRef = this.viewContainer.createComponent(timerComponentFactory);
+    timerComponentRef.instance.timername = name;
     timerComponentRef.instance.totaltime = total;
     timerComponentRef.instance.close.subscribe(() => {
       timerComponentRef.destroy();

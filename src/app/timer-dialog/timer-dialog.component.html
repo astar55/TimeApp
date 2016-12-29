@@ -5,6 +5,10 @@
   <div md-dialog-content>
     <div class="err">{{error}}</div>
     <form>
+      <md-input-container>
+        <input class="left-align" md-input type="text" #timename placeholder="Name" value="Alarm">
+      </md-input-container>
+      <br/>
       <label for="timerinput">Time </label>
       <div name="timerinput" class="timerinput">
         <md-input-container>
@@ -22,7 +26,7 @@
     </form>
   </div>
   <div md-dialog-action class="timerdialogaction">
-    <button md-button (click)="saveTimer(hrtime.value, mintime.value, sectime.value)"
+    <button md-button (click)="saveTimer(hrtime.value, mintime.value, sectime.value, timename.value)"
     [disabled]="(hrtime.value.length === 0 || !hrtime.value.trim()) &&
     (mintime.value.length === 0 || !mintime.value.trim()) &&
     (sectime.value.length === 0 || !sectime.value.trim())">Save</button>

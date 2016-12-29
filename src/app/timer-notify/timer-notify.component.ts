@@ -8,6 +8,7 @@ import { MdDialogRef } from '@angular/material';
 })
 export class TimerNotifyComponent implements OnInit {
 
+  timername: string;
   timertotal: string;
 
   constructor(public dialogRef:MdDialogRef<TimerNotifyComponent>) { }

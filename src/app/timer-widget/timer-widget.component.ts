@@ -11,6 +11,7 @@ import { TimerServiceService } from '../timer-service.service';
   styleUrls: ['./timer-widget.component.css']
 })
 export class TimerWidgetComponent implements OnInit {
+  timername: string;
   totaltime: number;
   totaltimestring: string;
   timeremain: number;
@@ -73,6 +74,7 @@ export class TimerWidgetComponent implements OnInit {
 
   openDialog(): void {
     let dialogRef = this.dialog.open(TimerNotifyComponent);
+    dialogRef.componentInstance.timername = this.timername;
     dialogRef.componentInstance.timertotal = this.totaltimestring;
   }
 
