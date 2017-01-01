@@ -22,8 +22,7 @@ export class TimerWidgetComponent implements OnInit {
   timerwidget: any; 
   close: EventEmitter<any> = new EventEmitter();
 
-  constructor(public dialog: MdDialog,
-    private timerServiceService: TimerServiceService) { }
+  constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
     this.timeremain = this.totaltime;
@@ -39,10 +38,21 @@ export class TimerWidgetComponent implements OnInit {
   }
 
   calculateRemaining() {
-    let hours: string = ((this.timeremain / (60 * 1000 * 60)) >> 0) >= 10 ? ((this.timeremain / (60 * 1000 * 60)) >> 0).toString() : "0" + ((this.timeremain / (60 * 1000 * 60)) >> 0).toString()
-    let minutes: string = (((this.timeremain / (60 * 1000)) % 60) >> 0) >= 10 ? (((this.timeremain / (60 * 1000)) % 60) >> 0).toString() : "0" + (((this.timeremain / (60 * 1000)) % 60) >> 0).toString();
-    let seconds: string = (((this.timeremain / 1000) % 60) >> 0) >= 10 ? (((this.timeremain / 1000) % 60) >> 0).toString() : "0" + (((this.timeremain / 1000) % 60) >> 0).toString();
-    this.remaining =  `${hours}:${minutes}:${seconds}`;
+    if (this.timeremain < (1000 * 60)) {
+      let seconds: string = (((this.timeremain / 1000)) >> 0) >= 10 ? (((this.timeremain / 1000)) >> 0).toString() : "0" + (((this.timeremain / 1000)) >> 0).toString();
+      this.remaining =  `${seconds}s`;
+    }
+    else if (this.timeremain < (1000 * 60 * 60)) {
+      let minutes: string = (((this.timeremain / (60 * 1000))) >> 0) >= 10 ? (((this.timeremain / (60 * 1000))) >> 0).toString() : "0" + (((this.timeremain / (60 * 1000))) >> 0).toString();
+      let seconds: string = (((this.timeremain / 1000) % 60) >> 0) >= 10 ? (((this.timeremain / 1000) % 60) >> 0).toString() : "0" + (((this.timeremain / 1000) % 60) >> 0).toString();
+      this.remaining =  `${minutes}m ${seconds}s`;
+    } 
+    else {
+      let hours: string = ((this.timeremain / (60 * 1000 * 60)) >> 0) >= 10 ? ((this.timeremain / (60 * 1000 * 60)) >> 0).toString() : "0" + ((this.timeremain / (60 * 1000 * 60)) >> 0).toString()
+      let minutes: string = (((this.timeremain / (60 * 1000)) % 60) >> 0) >= 10 ? (((this.timeremain / (60 * 1000)) % 60) >> 0).toString() : "0" + (((this.timeremain / (60 * 1000)) % 60) >> 0).toString();
+      let seconds: string = (((this.timeremain / 1000) % 60) >> 0) >= 10 ? (((this.timeremain / 1000) % 60) >> 0).toString() : "0" + (((this.timeremain / 1000) % 60) >> 0).toString();
+      this.remaining =  `${hours}h ${minutes}m ${seconds}s`;
+    }
   }
 
   pauseTimer(): void {

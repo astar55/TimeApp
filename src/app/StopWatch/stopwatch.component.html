@@ -1,0 +1,21 @@
+<md-toolbar color="primary">
+  <div>
+    <span class="title toolbar">
+      <i class="material-icons">alarm</i>
+      {{title}}
+    </span>
+  </div>
+  <div mdTooltip="Add Stopwatch" mdTooltipPosition="below" class="righttooltipdiv">
+    <button md-button (click)="openDialog()"><i class="material-icons">alarm_add</i></button>
+  </div>
+</md-toolbar>
+<div class="content">
+  <md-card *ngIf="currentstopwatchs.length === 0">
+    <md-card-content>
+      <p>Opps! No StopWatch!</p>
+    </md-card-content>
+  </md-card>
+  <div class="stopwatches">
+    <div #container></div>
+  </div>
+</div>

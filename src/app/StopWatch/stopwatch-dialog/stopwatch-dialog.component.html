@@ -1,0 +1,17 @@
+<div class="dialogdiv">
+  <h1 md-dialog-title>
+    <i class="material-icons">alarm</i>Create Stopwatch
+  </h1>
+  <div md-dialog-content>
+    <form>
+      <md-input-container>
+        <input class="left-align" md-input type="text" #stopwatchname placeholder="Name" value="Stopwatch">
+      </md-input-container>
+      <br/>
+      <md-checkbox color="primary" #autostart align="end">Autostart?</md-checkbox>
+    </form>
+  </div>
+  <div md-dialog-action class="stopwatchdialogaction">
+    <button md-button (click)="saveStopwatch(autostart.checked, stopwatchname.value)">Save</button>
+    <button md-button (click)="dialogRef.close()">Cancel</button>
+</div>

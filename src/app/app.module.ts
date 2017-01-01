@@ -10,9 +10,13 @@ import { TimerDialogComponent } from './timer/timer-dialog/timer-dialog.componen
 import { TimerWidgetComponent } from './timer/timer-widget/timer-widget.component';
 
 import { TimerServiceService } from './timer-service.service';
+import { StopwatchServiceService } from './stopwatch-service.service';
 import { TimerNotifyComponent } from './timer/timer-notify/timer-notify.component';
 import { TimerComponent } from './timer/timer.component';
 import { IndexComponent } from './index/index.component';
+import { StopwatchComponent } from './stopwatch/stopwatch.component';
+import { StopwatchWidgetComponent } from './stopwatch/stopwatch-widget/stopwatch-widget.component';
+import { StopwatchDialogComponent } from './stopwatch/stopwatch-dialog/stopwatch-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,10 @@ import { IndexComponent } from './index/index.component';
     TimerWidgetComponent,
     TimerNotifyComponent,
     TimerComponent,
-    IndexComponent
+    IndexComponent,
+    StopwatchComponent,
+    StopwatchWidgetComponent,
+    StopwatchDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -30,8 +37,9 @@ import { IndexComponent } from './index/index.component';
     AppRoutingModule,
     MaterialModule.forRoot()
   ],
-  providers: [TimerServiceService],
+  providers: [TimerServiceService, StopwatchServiceService],
   bootstrap: [AppComponent],
-  entryComponents: [TimerDialogComponent, TimerNotifyComponent, TimerWidgetComponent]
+  entryComponents: [TimerDialogComponent, TimerNotifyComponent, TimerWidgetComponent,
+    StopwatchDialogComponent, StopwatchWidgetComponent]
 })
 export class AppModule { }

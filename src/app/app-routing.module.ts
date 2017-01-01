@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TimerComponent } from './timer/timer.component';
 import { IndexComponent } from './index/index.component';
+import { StopwatchComponent } from './stopwatch/stopwatch.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'timer',
     component: TimerComponent
+  },
+  {
+    path: 'stopwatch',
+    component: StopwatchComponent
   }
 ];
 

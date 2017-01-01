@@ -1,0 +1,16 @@
+.stopwatchdialogaction {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dialogdiv {
+    color: darkmagenta;
+}
+
+.left-align {
+    text-align: left;
+}
+
+[md-dialog-content] {
+    overflow-y: hidden;
+}

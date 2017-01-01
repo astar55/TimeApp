@@ -52,11 +52,11 @@ export class TimerComponent implements OnInit {
         this.createTimer(this.timers[this.timers.length -1].name, this.timers[this.timers.length -1].total);
       }    
     }
-    )
+    );
   }
 
   createTimer(name: string, total: number): ComponentRef<TimerWidgetComponent> {
-    let timerComponentFactory = this.componentFactoryResolver.resolveComponentFactory(TimerWidgetComponent)
+    let timerComponentFactory = this.componentFactoryResolver.resolveComponentFactory(TimerWidgetComponent);
     let timerComponentRef = this.container.createComponent(timerComponentFactory);
     timerComponentRef.instance.timername = name;
     timerComponentRef.instance.totaltime = total;
