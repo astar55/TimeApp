@@ -25,12 +25,13 @@ html, body, md-sidenav-container {
 md-toolbar { 
     position: absolute;
     top: 0;
+    width: 64px;
 }
 
 .content {
     clear: both;
     position: absolute;
-    top: 7%;
+    top: 70px;
     width: 100%;
 }
 
