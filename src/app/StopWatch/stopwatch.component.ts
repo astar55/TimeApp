@@ -6,6 +6,7 @@ import { StopwatchDialogComponent } from './stopwatch-dialog/stopwatch-dialog.co
 import { StopwatchWidgetComponent } from './stopwatch-widget/stopwatch-widget.component';
 
 import { StopwatchServiceService } from '../stopwatch-service.service';
+import { DialogService } from '../dialog.service';
 
 @Component({
   selector: 'app-stopwatch',
@@ -22,7 +23,8 @@ export class StopwatchComponent implements OnInit {
 
   constructor(private dialog:MdDialog,
     private StopwatchService: StopwatchServiceService,
-    private componentFactoryResolver: ComponentFactoryResolver) { }
+    private componentFactoryResolver: ComponentFactoryResolver,
+    public dialogService: DialogService) { }
 
   ngOnInit() {
     this.getStopwatches();
@@ -67,4 +69,13 @@ createStopwatch(name:string, autostart: boolean): ComponentRef<StopwatchWidgetCo
   })
   return stopwatchComponentRef;
 }
+
+canDeactivate(): Promise<boolean> | boolean {
+  if(this.currentstopwatchs.length === 0) {
+    return true;
+  }
+
+  return this.dialogService.confirm("All Stopwatches will be Discarded?");
+  }
+
 }

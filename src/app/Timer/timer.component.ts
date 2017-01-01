@@ -6,6 +6,7 @@ import { TimerDialogComponent } from './timer-dialog/timer-dialog.component';
 import { TimerWidgetComponent } from './timer-widget/timer-widget.component';
 
 import { TimerServiceService } from '../timer-service.service';
+import { DialogService } from '../dialog.service';
 
 @Component({
   selector: 'app-timer',
@@ -28,7 +29,8 @@ export class TimerComponent implements OnInit {
   */
     constructor(public dialog:MdDialog,
     private TimerService: TimerServiceService,
-    private componentFactoryResolver: ComponentFactoryResolver) {}
+    private componentFactoryResolver: ComponentFactoryResolver,
+    public dialogService: DialogService) {}
 
   ngOnInit(): void {
     this.getTimers();
@@ -72,6 +74,16 @@ export class TimerComponent implements OnInit {
       }
     })
     return timerComponentRef;
+  }
+
+  canDeactivate(): Promise<boolean> | boolean {
+    if (this.currenttimers.length === 0){
+      return true;
+    }
+
+    return new Promise<boolean>(resolve => {
+        return resolve(window.confirm('All Timers will be Discarded?'));
+      });
   }
 
 }

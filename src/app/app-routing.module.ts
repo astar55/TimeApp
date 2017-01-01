@@ -5,6 +5,8 @@ import { TimerComponent } from './timer/timer.component';
 import { IndexComponent } from './index/index.component';
 import { StopwatchComponent } from './stopwatch/stopwatch.component';
 
+import { CanDeactivateGuardService } from './can-deactivate-guard.service';
+
 const routes: Routes = [
   {
     path: '',
@@ -18,17 +20,19 @@ const routes: Routes = [
   },
   {
     path: 'timer',
-    component: TimerComponent
+    component: TimerComponent,
+    canDeactivate: [CanDeactivateGuardService]
   },
   {
     path: 'stopwatch',
-    component: StopwatchComponent
+    component: StopwatchComponent,
+    canDeactivate: [CanDeactivateGuardService]
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: []
+  providers: [CanDeactivateGuardService]
 })
 export class AppRoutingModule { }
