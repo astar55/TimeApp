@@ -1,3 +1,3 @@
-# TimerApp
+# TimeApp
 
-An Angular 2 Web App that dynamically creates Timers/Stopwatches
+An Angular 2 Web App that dynamically creates Time Widgets
