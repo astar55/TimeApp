@@ -18,6 +18,7 @@ import { StopwatchComponent } from './stopwatch/stopwatch.component';
 import { StopwatchWidgetComponent } from './stopwatch/stopwatch-widget/stopwatch-widget.component';
 import { StopwatchDialogComponent } from './stopwatch/stopwatch-dialog/stopwatch-dialog.component';
 import { DialogService } from './dialog.service';
+import { AudioService } from './audio.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { DialogService } from './dialog.service';
     AppRoutingModule,
     MaterialModule.forRoot()
   ],
-  providers: [TimerServiceService, StopwatchServiceService, DialogService],
+  providers: [TimerServiceService, StopwatchServiceService, DialogService, AudioService],
   bootstrap: [AppComponent],
   entryComponents: [TimerDialogComponent, TimerNotifyComponent, TimerWidgetComponent,
     StopwatchDialogComponent, StopwatchWidgetComponent]

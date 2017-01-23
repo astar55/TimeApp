@@ -5,6 +5,7 @@
   <div md-dialog-content class="flexdiv">
     <div class="err">{{error}}</div>
     <div class="wiggle"><i class="material-icons md-48">alarm</i></div>
+    <audio src="{{audio}}" autoplay loop *ngIf="audio"></audio>
     Your {{timername}} Timer of {{timertotal}} has been completed!
   </div>
   <div md-dialog-action class="flexdiv" >
